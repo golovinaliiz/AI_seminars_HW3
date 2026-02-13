@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Local AI Panel · Transformers.js</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    /* Базовое оформление страницы */
+    body {
+      margin: 24px auto;
+      padding: 0 16px;
+      max-width: 720px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: #f3f4f6;
+      color: #111827;
+    }
+
+    h1 {
+      font-size: 1.9rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 3px solid #2563eb;
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      margin: 0.25rem 0 0.75rem;
+    }
+
+    .panel {
+      background-color: #ffffff;
+      border-radius: 14px;
+      padding: 18px 20px;
+      margin: 18px 0;
+      box-shadow: 0 3px 10px rgba(15, 23, 42, 0.06);
+    }
+
+    .panel h3 {
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+      font-size: 1.1rem;
+    }
+
+    label {
+      display: block;
+      margin-top: 0.9rem;
+      margin-bottom: 0.25rem;
+      font-weight: 600;
+      color: #374151;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      box-sizing: border-box;
+      border-radius: 0.55rem;
+      border: 1px solid #d1d5db;
+      padding: 0.65rem 0.75rem;
+      font-size: 0.98rem;
+      font-family: inherit;
+      background-color: #ffffff;
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    button {
+      margin-top: 0.9rem;
+      padding: 0.7rem 1.4rem;
+      border-radius: 0.55rem;
+      border: none;
+      font-size: 0.98rem;
+      font-weight: 600;
+      cursor: pointer;
+      background-color: #3b82f6;
+      color: #ffffff;
+      transition: background-color 0.18s ease;
+    }
+
+    button:hover {
+      background-color: #1d4ed8;
+    }
+
+    .status {
+      margin-top: 0.9rem;
+      padding: 0.6rem 0.75rem;
+      border-radius: 0.5rem;
+      background-color: #e5e7eb;
+      font-size: 0.88rem;
+      color: #111827;
+      word-break: break-word;
+    }
+
+    #sheet-status {
+      margin-top: 1.2rem;
+      padding: 1rem 1.1rem;
+      border-radius: 0.8rem;
+      font-weight: 600;
+      text-align: center;
+      transition: all 0.18s ease;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-top: 0.4rem;
+      padding: 0.2rem 0.9rem;
+      border-radius: 999px;
+      background-color: #e5e7eb;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: #374151;
+    }
+
+    .is-hidden {
+      display: none;
+    }
+
+    hr {
+      margin: 2rem 0;
+      border: none;
+      border-top: 1px solid #e5e7eb;
+    }
+  </style>
+
+  <!-- Библиотека Transformers.js из CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.0"></script>
+</head>
+<body>
+  <h1>🛡️ Automatic Firefighter · Браузерный AI</h1>
+  <p>Модель запускается прямо на стороне клиента — постоянный токен Hugging Face не нужен.</p>
+
+  <!-- ======= НАСТРОЙКИ (ТОЛЬКО URL GAS) ======= -->
+  <div class="panel">
+    <h3>🔧 Шаг 1. Параметры подключения</h3>
+
+    <!-- Поле токена — для совместимости, фактически игнорируется -->
+    <label for="hf-token-input">🤗 Hugging Face токен (опционально)</label>
+    <input
+      id="hf-token-input"
+      type="text"
+      placeholder="Можно оставить пустым"
+      value=""
+    >
+    <button id="store-token-btn">Сохранить токен (необязательно)</button>
+    <small style="color:#6b7280;">Для запуска моделей через Transformers.js токен не требуется.</small>
+
+    <label for="gs-webapp-url">📊 URL веб‑приложения Google Apps Script</label>
+    <input
+      id="gs-webapp-url"
+      type="url"
+      placeholder="https://script.google.com/macros/s/.../exec"
+    >
+    <button id="store-url-btn">Запомнить адрес Web App</button>
+
+    <div id="config-hint" class="status">
+      ⚙️ Укажите ссылку Web App для Google Sheets и сохраните настройки.
+    </div>
+  </div>
+
+  <!-- дальше можешь вставлять свой JS/HTML как нужно -->
+</body>
+</html>
